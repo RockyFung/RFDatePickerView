@@ -15,6 +15,7 @@
 		5C1F162321E82CA3001DAAC7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C1F162221E82CA3001DAAC7 /* main.m */; };
 		5C1F162D21E82CA3001DAAC7 /* RFDatePickerViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C1F162C21E82CA3001DAAC7 /* RFDatePickerViewTests.m */; };
 		5C1F163821E82CA4001DAAC7 /* RFDatePickerViewUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C1F163721E82CA4001DAAC7 /* RFDatePickerViewUITests.m */; };
+		5C1F164821E82D07001DAAC7 /* RFDatePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C1F164721E82D07001DAAC7 /* RFDatePickerView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,8 @@
 		5C1F163321E82CA3001DAAC7 /* RFDatePickerViewUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RFDatePickerViewUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C1F163721E82CA4001DAAC7 /* RFDatePickerViewUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RFDatePickerViewUITests.m; sourceTree = "<group>"; };
 		5C1F163921E82CA4001DAAC7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5C1F164621E82D07001DAAC7 /* RFDatePickerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RFDatePickerView.h; sourceTree = "<group>"; };
+		5C1F164721E82D07001DAAC7 /* RFDatePickerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RFDatePickerView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +104,7 @@
 		5C1F161221E82CA2001DAAC7 /* RFDatePickerView */ = {
 			isa = PBXGroup;
 			children = (
+				5C1F164521E82CD7001DAAC7 /* RFDatePickerView */,
 				5C1F161321E82CA2001DAAC7 /* AppDelegate.h */,
 				5C1F161421E82CA2001DAAC7 /* AppDelegate.m */,
 				5C1F161621E82CA2001DAAC7 /* ViewController.h */,
@@ -130,6 +134,15 @@
 				5C1F163921E82CA4001DAAC7 /* Info.plist */,
 			);
 			path = RFDatePickerViewUITests;
+			sourceTree = "<group>";
+		};
+		5C1F164521E82CD7001DAAC7 /* RFDatePickerView */ = {
+			isa = PBXGroup;
+			children = (
+				5C1F164621E82D07001DAAC7 /* RFDatePickerView.h */,
+				5C1F164721E82D07001DAAC7 /* RFDatePickerView.m */,
+			);
+			path = RFDatePickerView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,6 +275,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C1F164821E82D07001DAAC7 /* RFDatePickerView.m in Sources */,
 				5C1F161821E82CA2001DAAC7 /* ViewController.m in Sources */,
 				5C1F162321E82CA3001DAAC7 /* main.m in Sources */,
 				5C1F161521E82CA2001DAAC7 /* AppDelegate.m in Sources */,
