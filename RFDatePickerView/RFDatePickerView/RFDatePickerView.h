@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) void(^selectedBlock)(NSString *dateStr);
 @property (nonatomic, copy) NSString *currentDate;
 
-+ (instancetype)showPickerViewDateBlock:(void (^)(NSString *dateStr))dateBlock;
++ (instancetype)showPickerViewWithModel:(UIDatePickerMode)model formate:(NSString *)formate DateBlock:(void (^)(NSString *dateStr))dateBlock;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -19,7 +19,6 @@
 #define RFColor(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
 #define HeaderViewHeight FitValue(45)
-#define FORMAT @"yyyy-MM-dd"
 
 typedef NS_OPTIONS (NSInteger, HeaderViewButtonType) {
     HeaderViewButtonTypeCancel,
@@ -34,9 +33,14 @@ typedef NS_OPTIONS (NSInteger, HeaderViewButtonType) {
 @end
 
 static RFDatePickerView *_view = nil;
+static NSString *_format;
+static UIDatePickerMode _pickerModel;
+
 @implementation RFDatePickerView
 
-+ (instancetype)showPickerViewDateBlock:(void (^)(NSString *dateStr))dateBlock {
++ (instancetype)showPickerViewWithModel:(UIDatePickerMode)model  formate:(NSString *)formate DateBlock:(void (^)(NSString *dateStr))dateBlock {
+    _pickerModel = model;
+    _format = formate;
     _view = [[RFDatePickerView alloc] init];
     //显示view
     _view.selectedBlock = dateBlock;
@@ -81,7 +85,7 @@ static RFDatePickerView *_view = nil;
     
     UIDatePicker *datePickerView = [[UIDatePicker alloc] init];
     datePickerView.backgroundColor = RFColor(0xffffff);
-    datePickerView.datePickerMode = UIDatePickerModeDate;
+    datePickerView.datePickerMode = _pickerModel;
     datePickerView.frame = CGRectMake(0, toolBar.frame.size.height, ScreenWidth, FitValue(220));
     [datePickerView addTarget:self action:@selector(dateChanged:) forControlEvents:UIControlEventValueChanged];
     [containView addSubview:datePickerView];
@@ -92,7 +96,7 @@ static RFDatePickerView *_view = nil;
     _currentDate = currentDate;
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:FORMAT];
+    [dateFormatter setDateFormat:_format];
     NSDate *date = [dateFormatter dateFromString:self.currentDate];
     self.datePickerView.date = date;
 }
@@ -108,7 +112,7 @@ static RFDatePickerView *_view = nil;
     if (sender.tag == HeaderViewButtonTypeConfirm) {
         
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-        [dateFormatter setDateFormat:FORMAT];
+        [dateFormatter setDateFormat:_format];
         NSString *strDate = [dateFormatter stringFromDate:self.datePickerView.date];
         
         if (self.selectedBlock) {
